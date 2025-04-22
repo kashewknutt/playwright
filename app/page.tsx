@@ -3,6 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { Button as MovingButton } from "@/components/ui/moving-border"
 import { Upload, User, Menu } from "lucide-react"
 import { useState } from "react"
 import { GoogleLogin } from "./components/auth/google-login"
@@ -53,7 +54,7 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+        <section className="relative h-screen flex items-center justify-center">
           <div className="absolute inset-0 z-0">
             <Image src="/images/aura-background.png" alt="AURA Background" fill className="object-cover" priority />
           </div>
@@ -63,12 +64,6 @@ export default function Home() {
               {/* AURA text and tagline removed as requested */}
             </div>
             <div className="flex justify-center mt-8">
-              <Link href="/upload">
-                <Button className="rounded-full px-8 py-6 bg-[#d4a6a6] hover:bg-[#c29292] text-white">
-                  <Upload className="mr-2 h-5 w-5" />
-                  Upload Your Art
-                </Button>
-              </Link>
             </div>
           </div>
         </section>
@@ -93,10 +88,17 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <div className="text-center mt-12">
+            <div className="flex flex-row gap-4 pt-20 justify-center">
               <Button className="rounded-full px-8 py-2 bg-[#d4a6a6] hover:bg-[#c29292] text-white">
-                View All Artworks
+              View All Artworks
               </Button>
+              <MovingButton
+              className="rounded-full px-8 py-2 bg-[#d4a6a6] hover:bg-[#c29292] text-white"
+              containerClassName="h-auto w-auto"
+              >
+              <Upload className="mr-2 h-5 w-5" />
+              Upload Your Art
+              </MovingButton>
             </div>
           </div>
         </section>
